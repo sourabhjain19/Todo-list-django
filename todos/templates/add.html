@@ -1,0 +1,52 @@
+{% extends "./base.html" %}
+
+{% block content %}
+
+<div style="margin-top: 50px;">
+    <div style="display: flex;">
+
+        <h2 style="padding-right: 25%;padding-left: 45%;padding-bottom: 30px;"> Your Notes </h2>
+
+        <a href="http://127.0.0.1:8000/todos/addform/"><button class="btn btn-success" style="position: relative;">Add
+                Notes</button></a>
+
+    </div>
+    <div style="align-items: center;display: flex;justify-content: center;">
+        <form method='POST' action='http://127.0.0.1:8000/todos/add/'>
+            {% csrf_token %}
+            <div class="card bg-light mb-3" style="width: 100%;">
+                <div class="card-header" style="display: flex;">
+                    {{date}}
+                    <div><input type="submit" value="Add" class="btn btn-success"
+                            style="font-size: small;margin-left: 850px;"></div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <input type="text" class="form-control" id="title" placeholder='Enter the Title' name="title">
+                    </h5>
+
+                    <p class="card-text"> <textarea type="text" class="form-control" placeholder='Enter the Description'
+                            id="description" name="description"></textarea></p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% for t in tod %}
+
+    <div style="align-items: center;display: flex;justify-content: center;">
+        <div class="card bg-light mb-3" style="width: 75%;">
+            <div class="card-header" style="display: flex;">
+                {{t.date}}
+                <div><a href="http://127.0.0.1:8000/todos/delete/{{t.pk}}"><button class="btn btn-danger"
+                            style="font-size: small;margin-left: 850px;">Delete</button></a></div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{t.title}}</h5>
+                <p class="card-text">{{t.description}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% endblock %}

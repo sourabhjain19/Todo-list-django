@@ -1,0 +1,44 @@
+{% extends "./base.html" %}
+
+{% block content %}
+
+<div style="margin-top: 50px;">
+  <div style="display: flex;">
+
+    <h2 style="padding-right: 25%;padding-left: 45%;padding-bottom: 30px;"> Your Notes </h2>
+
+    <a href="http://127.0.0.1:8000/todos/addform/"><button class="btn btn-success" style="position: relative;">Add
+        Notes</button></a>
+
+  </div>
+
+  {% if not tod %}
+
+  <div style="align-items: center;display: flex;justify-content: center;">
+    <div class="card bg-light mb-3" style="width: 75%;">
+      <div class="card-body">
+        <center><h5 style="color: darkgray;" class="card-title">No Notes</h5></center>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% for t in tod %}
+
+  <div style="align-items: center;display: flex;justify-content: center;">
+    <div class="card bg-light mb-3" style="width: 75%;">
+      <div class="card-header" style="display: flex;">
+        {{t.date}}
+        <div><a href="http://127.0.0.1:8000/todos/delete/{{t.pk}}"><button class="btn btn-danger"
+              style="font-size: small;margin-left: 850px;">Delete</button></a></div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{t.title}}</h5>
+        <p class="card-text">{{t.description}}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  {% endblock %}
+</div>
