@@ -125,9 +125,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 
 EMAIL_PORT = 587
 
-EMAIL_HOST_USER = 'clitehotel@gmail.com'
+EMAIL_HOST_USER = '**********@gmail.com'
 
-EMAIL_HOST_PASSWORD = 'clite1999'
+EMAIL_HOST_PASSWORD = '************'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

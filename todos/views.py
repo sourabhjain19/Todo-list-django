@@ -93,7 +93,7 @@ def sendmail(request):
         'Click to register',
         "http://127.0.0.1:8000/todos/verify/" +
         encoded_token.decode('utf-8')+'/',
-        'clitehotel@gmail.com',
+        '************@gmail.com',
         [request.POST['email']],
         fail_silently=False
     )
