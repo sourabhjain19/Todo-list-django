@@ -1,36 +1,43 @@
 {% extends "./base.html" %}
 
 {% block content %}
+<style>
+  @media screen and (max-width: 1000px) {
 
+    h2 {
+      font-size: 20px;
+      margin-right: 200px;
+
+    }
+
+  }
+</style>
 <div style="margin-top: 50px;">
-  <div style="display: flex;">
-
-    <h2 style="padding-right: 25%;padding-left: 45%;padding-bottom: 30px;"> Your Notes </h2>
-
-    <a href="http://127.0.0.1:8000/todos/addform/"><button class="btn btn-success" style="position: relative;">Add
-        Notes</button></a>
-
+  <div style="display: block;">
+    <h2 style="margin-right:380px;padding-left: 45%;padding-bottom: 30px;"> Your Notes </h2>
   </div>
 
-  {% if not tod %}
+  <a href="http://127.0.0.1:8000/todos/addform/">
 
-  <div style="align-items: center;display: flex;justify-content: center;">
-    <div class="card bg-light mb-3" style="width: 75%;">
-      <div class="card-body">
-        <center><h5 style="color: darkgray;" class="card-title">No Notes</h5></center>
-      </div>
+    <div style="align-items: center;display: flex;justify-content: center;">
+      <button class="card bg-light mb-3" style="width: 75%;">
+        <div class="card-body">
+          <center>
+            <h5 style="color: darkgray;" class="card-title">Add Notes(+)</h5>
+          </center>
+        </div>
+
+      </button>
     </div>
-  </div>
-  {% endif %}
+  </a>
 
   {% for t in tod %}
-
   <div style="align-items: center;display: flex;justify-content: center;">
     <div class="card bg-light mb-3" style="width: 75%;">
       <div class="card-header" style="display: flex;">
-        {{t.date}}
-        <div><a href="http://127.0.0.1:8000/todos/delete/{{t.pk}}"><button class="btn btn-danger"
-              style="font-size: small;margin-left: 850px;">Delete</button></a></div>
+        <div class="col-lg-3" style="padding-left:0px;">{{t.date}}</div>
+        <div class="col-lg-9"><a href="http://127.0.0.1:8000/todos/delete/{{t.pk}}"><button class="btn btn-danger"
+              style="font-size: small;float: right;">Delete</button></a></div>
       </div>
       <div class="card-body">
         <h5 class="card-title">{{t.title}}</h5>
@@ -39,6 +46,5 @@
     </div>
   </div>
   {% endfor %}
-
-  {% endblock %}
 </div>
+{% endblock %}

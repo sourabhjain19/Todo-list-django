@@ -1,10 +1,20 @@
 {% extends './base.html' %}
 {% block content %}
+<style>
+    .jumbotron {
+        width: 50%;
+    }
 
+    @media screen and (max-width: 1000px) {
+        .jumbotron {
+            width: 100%;
+        }
+    }
+</style>
 <div class="container" style="display: flex;align-items: center;justify-content: center;margin-top: 150px;">
-    <div class='jumbotron' style='width: 50%; height:380px; padding-top: 30px; background-color: rgba(0,0,0,0.5);  color: white;'>
+    <div class='jumbotron' style='height:36%; padding-top: 4%; background-color: rgba(0,0,0,0.5);  color: white;'>
         
-        <center><div style="margin-bottom: 40px;"><h1>Register</h1></div></center>
+        <center><div style="margin-bottom: 6%;"><h1>Register</h1></div></center>
 
         <form method='POST' action='http://127.0.0.1:8000/todos/register/'>
             {% csrf_token %}
